@@ -1,0 +1,189 @@
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;   
+    }
+
+    body{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr 1.5fr 50px;
+        grid-template-areas: "nav"
+                             "header"
+                             "main"
+                             "footer";
+        min-height: 100vh;
+        justify-content: center;
+        align-content: center;   
+    }
+    header{
+        display: grid;
+        grid-area: header;
+        color: white;
+        font-size: 50px;
+        justify-items: center;
+    }
+    header img{
+        margin-top: 5px;
+        width: 90px;
+    }
+    #banner{
+        width: 100%;
+    }
+    
+    nav{
+        grid-area: nav;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        width: 100%;
+        position: fixed;
+        top: 0;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+    }
+    
+    main{
+        display: grid;
+        grid-area: main;
+        background: url("Imagenes/Fondos/contact.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .contenedor{
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .arriba{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    h1{
+        color:#fff;
+        margin-top: 100px;
+        margin-bottom: 15px;
+    }
+    input{
+        width: 300px;
+        height: 35px;
+    }
+    textarea{
+        width: 600px;
+        height: 170px;
+        margin-top: 5px;
+    }
+    input, textarea{
+        background: transparent;
+        border: solid 2px #fff;
+        color: #fff;
+    }
+    input[type=submit]{
+        color:#fff;
+    }
+    input[type=submit]:hover{
+        background-color: black;
+        cursor: grab;
+    }
+    ::-webkit-input-placeholder{
+        color: #fff;
+        
+    }
+
+    footer{
+        display: grid;
+        grid-area: footer;
+        background-color: #333;
+        margin-top: 5px;
+        justify-items:center;
+        align-items: center;
+        color: white;
+        font-size: 15px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+    }
+
+    footer div a img{
+        width:25px;
+        margin-left: 5px;
+    }
+
+    footer span{
+        grid-column: 1;
+    }
+
+    footer div{
+        grid-column: 4;
+    }
+    
+
+
+    @media (max-width:600px){
+
+    body{
+    grid-template-rows: 50px 1fr 4fr 0.3fr; 
+    }   
+
+    header{
+        font-size: 25px;
+    }
+
+    header img{
+        width: 60px;
+    }
+    main{
+        background: url("Imagenes/Fondos/contact-cel.jpg");
+    }
+
+    footer{
+        font-size: 12px;
+        grid-template-columns: 1fr 1fr;
+        height: 35px;
+    }
+    footer div a img{
+        width:18px;
+    }
+    footer div{
+        grid-column: 2;
+    }
+    footer span{
+        grid-column: 1;
+    }
+
+    input{
+        width: 150px;
+        height: 35px;
+    }
+    textarea{
+        width: 300px;
+        height: 50px;
+        margin-top: 5px;
+    }
+}
