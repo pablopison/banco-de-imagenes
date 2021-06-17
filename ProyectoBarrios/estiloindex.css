@@ -119,12 +119,7 @@
     footer div{
         grid-column: 4;
     }
-    
-    #listabarrios {
-        width: px;
-      }
         
-  
 
     @media (max-width:600px){
         
