@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+
+    <link rel="stylesheet" href="estilocontacto.css">
+
+
+
+</head>
+<header>
+    <div class="contenedor">
+    <img id="banner" src="Imagenes\Banners\BannerFotografo.png" alt="">
+    <div class="arriba"><img src="./logo letras blancas.png"></div>
+    </div>
+</header>    
+    <nav>
+     <ul>
+        <li><a href="Index.html">Inicio</a></li>
+        <li><a href="Servicios.html">Servicios</a></li>
+        <li><a href="#Contacto">Contacto</a></li>
+     </ul>
+    </nav> 
+
+<main>
+    <center>
+    <h1>CONTACTO</h1>
+    <form method="post" action="http://localhost:3000/contacto">
+        <input type="text" name="nombre" placeholder="NOMBRE">
+        <input type="email" name="email" placeholder="CORREO">
+        <br>
+        <textarea type="text" name="mensaje" placeholder="MENSAJE"></textarea>
+        <br>
+        <input type="submit" onclick="hizoClick()" value="ENVIAR">
+    </form>
+   </center>
+</main>
+
+<footer>
+
+    <span>Copyright © 2021 Pablo Pison 👌</span>
+    <div>
+    <a href="https://www.instagram.com/pablopison" target="_blank"><img src="Imagenes\Redes sociales\instagram.png" alt=""></a>
+    <a href="https://www.linkedin.com/in/pablopison/" target="_blank"><img src="Imagenes\Redes sociales\linkedin.png" alt=""></a>
+    <a href="https://pablopison.wixsite.com/fotografia" target="_blank"><img src="Imagenes\Redes sociales\internet.png" alt=""></a>
+    <a href="https://www.flickr.com/photos/149857418@N08/albums" target="_blank"><img src="Imagenes\Redes sociales\flickr.png" alt=""></a>
+    </div>
+
+</footer>
+  
+<script>
+    function hizoClick() {
+      alert("Mensaje enviado");
+    }
+    </script>
+</body>
+</html>
