@@ -86,8 +86,8 @@
 
     
     <main>
-        <div><img src="Imagenes\Barrios\Aguada\DSC_8355.jpg" alt=""></div>
-        <div><img src="Imagenes\Barrios\Aguada\DSC_8456.jpg" alt=""></div>
+        <div><img src="Imagenes\Barrios\Aguada\Aguada1.jpg" alt=""></div>
+        <div><img src="Imagenes\Barrios\Aguada\Aguada2.jpg" alt=""></div>
         <div><img src="Imagenes\Barrios\Aguada\DSC_8402.jpg" alt=""></div>
         <div><img src="Imagenes\Barrios\Aguada\DSC_8492.jpg" alt=""></div>
         <div><img src="Imagenes\Barrios\Aguada\DSC_1148.jpg" alt=""></div>
@@ -128,7 +128,7 @@
          <tr>
            <td>800 x 600</td>
            <td>$300</td>
-           <td><button>COMPRAR</button></td>
+           <td><button><a id="linkDeDescarga" href='http://localhost:3000/descarga/Pocitos8'>COMPRAR</a></button></td>
          </tr>
        
          <tr>
@@ -164,6 +164,9 @@
              const imgParaMostrar = event.target.getAttribute('src');
              const imgDelPopup = document.querySelector(".pop-up img")
              imgDelPopup.setAttribute('src', imgParaMostrar)
+             const imageName = imgParaMostrar.slice(imgParaMostrar.lastIndexOf('\\') + 1);
+
+             document.getElementById('linkDeDescarga').href = `http://localhost:3000/descarga/${imageName}`
              
          })
          
