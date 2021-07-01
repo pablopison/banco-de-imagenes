@@ -35,6 +35,7 @@ button.addEventListener('click', () => {
                 
 
                 alert('Login exitoso');
+                location.reload();
             }else {
                 alert('Login fallido');
             }

@@ -5,8 +5,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const authRouter = require('./routes/auth');
+//const contactoRouter = require('./routes/contacto');
 
-//const { verifyToken } = require('./middlewares/jwt-validate');
+const { verifyToken } = require('./middlewares/jwt-validate');
 
 const multer = require('multer')
 const uploadMiddleware = multer({dest: 'uploads/'});
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/auth', authRouter);
+//app.use('/contacto', contactoRouter);
 
 
 //Enviar un mensaje de texto
@@ -44,8 +46,19 @@ app.get('/descarga/:fotoName', function(req, res){
     res.download(`imagenes/${req.params.fotoName}`);
 })
 
+//Cargar la fotos de un barrio desde el backend
+app.get('/fotos', verifyToken, function(req, res){
 
+    res.json({
+        fotos: fotos
+    })
+});
 
 app.listen(PORT, function(){
     console.log('El servidor quedo corriendo en el puerto ' + PORT);
 });
+
+const fotos = [
+    'DSC_0003', 'DSC_0005', 'DSC_0020', 'DSC_0024', 
+    'DSC_9999', 'DSC_0032', 'DSC_9998', 'DSC_9983',
+    'DSC_9985', 'DSC_0011', 'DSC_0049', 'DSC_0051'];

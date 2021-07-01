@@ -5,7 +5,7 @@
 
 
 //Formulario de contacto
-//app.post('/contacto', function(req, res){
+//app.post('/', function(req, res){
     //const newUser = req.body;
     //console.log(newUser);
 

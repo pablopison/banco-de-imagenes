@@ -81,6 +81,9 @@ router.get('/usuarios', verifyToken, (req, res) => {
 
 module.exports = router;
 
+// Usuario: pablo.pison@gmail.com
+// Clave: 123456
+
 const usuarios = [
   {
     name: 'Pablo',
@@ -88,3 +91,4 @@ const usuarios = [
     password: '$2b$10$F75ZCvls66p6YvpFjgnoyOHN82DLa2vZg6MJn7PhfCHya6pwH3BMm'
   }
 ];
+
