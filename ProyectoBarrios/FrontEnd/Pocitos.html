@@ -145,13 +145,13 @@
          <tr>
            <td>1024 x 768</td>
            <td>$450</td>
-           <td><button>COMPRAR</button></td>
+           <td><button><a id="linkDeDescarga2" href='http://localhost:3000/descarga/Pocitos8'>COMPRAR</a></button></td>
          </tr>
        
          <tr>
            <td>1920 x 1080</td>
            <td>$600</td>
-           <td><button>COMPRAR</button></td>
+           <td><button><a id="linkDeDescarga3" href='http://localhost:3000/descarga/Pocitos8'>COMPRAR</a></button></td>
          </tr>
        
        </table>
@@ -177,7 +177,9 @@
              imgDelPopup.setAttribute('src', imgParaMostrar)
              const imageName = imgParaMostrar.slice(imgParaMostrar.lastIndexOf('\\') + 1);
 
-             document.getElementById('linkDeDescarga').href = `http://localhost:3000/descarga/${imageName}`
+             document.getElementById('linkDeDescarga').href = `http://localhost:3000/descarga/${imageName}`;
+             document.getElementById('linkDeDescarga2').href = `http://localhost:3000/descarga/${imageName}`;
+             document.getElementById('linkDeDescarga3').href = `http://localhost:3000/descarga/${imageName}`
 
          })
          

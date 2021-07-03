@@ -83,7 +83,6 @@ module.exports = router;
 
 // Usuario: pablo.pison@gmail.com
 // Clave: 123456
-
 const usuarios = [
   {
     name: 'Pablo',
