@@ -1,3 +1,5 @@
+//Esta ruta al final no la use y quedo funcionando desde el index, la dejo comentada para probarla después
+
 //const express = require('express');
 //const bodyParser = require('body-parser');
 //const router = express.Router();
