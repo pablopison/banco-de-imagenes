@@ -1,21 +1,52 @@
 
+import React from "react";
 import './App.css';
 import Footer from './Componentes/Footer';
 import ListaBarrios from './Componentes/ListaBarrios';
 import Navegacion from './Componentes/Navegacion';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Contacto from './Paginas/Contacto';
+import Servicios from './Paginas/Servicios';
+
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <Navegacion />
+
+        <Switch>
+          <Route path="/servicios">
+            <Servicios />
+          </Route>
+          <Route path="/contacto">
+            <Contacto />
+          </Route>
+          <Route path="/">
+            <Inicio />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Inicio() {
   return (
     <div className="App">
-    <header>
+    <header className="headerinicio">
         <img src="./Imagenes/logoletrasblancas.png" />
         <p>BARRIOS</p>
         
         <ListaBarrios />  
             
     </header>    
-
-    <Navegacion /> 
 
     
     <main>
@@ -38,4 +69,5 @@ function App() {
   );
 }
 
-export default App;
+
+

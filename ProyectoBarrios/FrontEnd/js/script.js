@@ -12,7 +12,7 @@ function cargarFotosBarrios () {
        //'DSC_9999', 'DSC_0032', 'DSC_9998', 'DSC_9983',
        //'DSC_9985', 'DSC_0011', 'DSC_0049', 'DSC_0051']; 
 
-   fetch("http://localhost:3000/fotos", {
+   fetch("http://localhost:4000/fotos", {
        method: "GET",
        headers: {
            "auth-token": localStorage.getItem('token')

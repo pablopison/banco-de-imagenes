@@ -1,15 +1,27 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function Navegacion() {
     return (
       <>
         <nav>
-         <ul>
-          <li><a href="#Inicio">Inicio</a></li>
-          <li><a href="Servicios.html">Servicios</a></li>
-          <li><a href="Contacto.html">Contacto</a></li>
-         </ul>
-        </nav> 
+          <ul>
+            <li>
+              <Link to="/">Inicio</Link>
+            </li>
+            <li>
+              <Link to="/servicios">Servicios</Link>
+            </li>
+            <li>
+              <Link to="/contacto">Contacto</Link>
+            </li>
+          </ul>
+        </nav>
       </>
     );
 }
