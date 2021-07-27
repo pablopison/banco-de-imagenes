@@ -68,6 +68,9 @@
         background: url("../Imagenes/contact.jpg");
         background-repeat: no-repeat;
         background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     .contenedor{
@@ -81,11 +84,17 @@
         top: 10px;
         left: 10px;
     }
+    form{
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+    }
    
     h1{
         color:#fff;
-        margin-top: 100px;
+        margin-top: 50px;
         margin-bottom: 15px;
+        text-align: center;
     }
     input{
         width: 300px;

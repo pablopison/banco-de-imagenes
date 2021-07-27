@@ -14,9 +14,9 @@ export default function Contacto() {
       </header>    
   
       <main className="Fondo">
-      <center>
-      <h1>CONTACTO</h1>
+      
       <form className="formulario" method="post" action="http://localhost:4000/contacto">
+        <h1>CONTACTO</h1>
         <input type="text" name="nombre" placeholder="NOMBRE" />
         <input type="email" name="email" placeholder="CORREO" />
         <br/>
@@ -24,7 +24,7 @@ export default function Contacto() {
         <br/>
         <input type="submit" onclick="hizoClick()" value="ENVIAR"/>
       </form>
-      </center>
+      
       </main>
   
       
