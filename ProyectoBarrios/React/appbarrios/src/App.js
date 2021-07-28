@@ -14,6 +14,8 @@ import {
 
 import Contacto from './Paginas/Contacto';
 import Servicios from './Paginas/Servicios';
+import Barrios from './Paginas/Barrios';
+
 
 export default function App() {
   return (
@@ -27,6 +29,9 @@ export default function App() {
           </Route>
           <Route path="/contacto">
             <Contacto />
+          </Route>
+          <Route path="/Barrios/:id" children={<Barrios />}>
+            <Barrios />
           </Route>
           <Route path="/">
             <Inicio />
@@ -50,18 +55,18 @@ function Inicio() {
 
     
     <main>
-        <div><span>Pocitos</span><a href="Pocitos.html"><img src="Imagenes\Imagenes chicas\Pocitos.jpg" /></a></div>
-        <div><span>Prado</span><a href="Prado.html"><img src="Imagenes\Imagenes chicas\Prado.jpg" /></a></div>
-        <div><span>Parque Rodo</span><a href="Parque Rodo.html"><img src="Imagenes\Imagenes chicas\Parque Rodo.jpg" /></a></div>
-        <div><span>Cordon</span><a href="#"><img src="Imagenes\Imagenes chicas\Cordon.jpg" /></a></div>
-        <div><span>Centro</span><a href="Centro.html"><img src="Imagenes\Imagenes chicas\Centro.jpg" /></a></div>
-        <div><span>Tres Cruces</span><a href="#"><img src="Imagenes\Imagenes chicas\Tres Cruces.jpg" /></a></div>
-        <div><span>Aguada</span><a href="Aguada.html"><img src="Imagenes\Imagenes chicas\Aguada.jpg" /></a></div>
-        <div><span>Capurro</span><a href="Capurro.html"><img src="Imagenes\Imagenes chicas\Capurro.jpg" /></a></div>
-        <div><span>Barrio Sur</span><a href="Barrio Sur.html"><img src="Imagenes\Imagenes chicas\Barrio Sur.jpg" /></a></div>
-        <div><span>Parque Batlle</span><a href="Parque Batlle.html"><img src="Imagenes\Imagenes chicas\Parque Batlle.jpg" /></a></div>
-        <div><span>Cerro</span><a href="#"><img src="Imagenes\Imagenes chicas\Cerro.jpg" /></a></div>
-        <div><span>Mercado Modelo</span><a href="#"><img src="Imagenes\Imagenes chicas\Mercado Modelo.jpg" /></a></div>
+        <div><span>Pocitos</span><Link to="/Barrios/POCITOS"><img src="Imagenes\Imagenes chicas\Pocitos.jpg" /></Link></div>
+        <div><span>Prado</span><Link to="/Barrios/PRADO"><img src="Imagenes\Imagenes chicas\Prado.jpg" /></Link></div>
+        <div><span>Parque Rodo</span><Link to="/Barrios/PARQUE RODO"><img src="Imagenes\Imagenes chicas\Parque Rodo.jpg" /></Link></div>
+        <div><span>Cordon</span><Link to="/Barrios/CORDON"><img src="Imagenes\Imagenes chicas\Cordon.jpg" /></Link></div>
+        <div><span>Centro</span><Link to="/Barrios/CENTRO"><img src="Imagenes\Imagenes chicas\Centro.jpg" /></Link></div>
+        <div><span>Tres Cruces</span><Link to="/Barrios/TRES CRUCES"><img src="Imagenes\Imagenes chicas\Tres Cruces.jpg" /></Link></div>
+        <div><span>Aguada</span><Link to="/Barrios/AGUADA"><img src="Imagenes\Imagenes chicas\Aguada.jpg" /></Link></div>
+        <div><span>Capurro</span><Link to="/Barrios/CAPURRO"><img src="Imagenes\Imagenes chicas\Capurro.jpg" /></Link></div>
+        <div><span>Barrio Sur</span><Link to="/Barrios/BARRIO SUR"><img src="Imagenes\Imagenes chicas\Barrio Sur.jpg" /></Link></div>
+        <div><span>Parque Batlle</span><Link to="/Barrios/PARQUE BATLLE"><img src="Imagenes\Imagenes chicas\Parque Batlle.jpg" /></Link></div>
+        <div><span>Cerro</span><Link to="/Barrios/CERRO"><img src="Imagenes\Imagenes chicas\Cerro.jpg" /></Link></div>
+        <div><span>Mercado Modelo</span><Link to="/Barrios/MERCADO MODELO"><img src="Imagenes\Imagenes chicas\Mercado Modelo.jpg" /></Link></div>
     </main>
     <Footer /> 
     
