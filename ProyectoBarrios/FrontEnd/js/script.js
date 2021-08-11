@@ -7,12 +7,11 @@ $("body").on("contextmenu", function(_e){
 /*Cargar fotos de un barrio desde el backend*/
 function cargarFotosBarrios () {
 
-   //const fotos = [
-       //'DSC_0003', 'DSC_0005', 'DSC_0020', 'DSC_0024', 
-       //'DSC_9999', 'DSC_0032', 'DSC_9998', 'DSC_9983',
-       //'DSC_9985', 'DSC_0011', 'DSC_0049', 'DSC_0051']; 
+const path = window.location.pathname;
+const page = path.split("/").pop();
+const barrio = page.split(".")[0];
 
-   fetch("http://localhost:4000/fotos", {
+fetch(`http://localhost:4000/fotos/${barrio}`, {
        method: "GET",
        headers: {
            "auth-token": localStorage.getItem('token')
@@ -30,7 +29,7 @@ function cargarFotosBarrios () {
        const nuevoDiv = document.createElement("div");
     
        const image = document.createElement("img");
-       image.setAttribute('src', `Imagenes\\Barrios\\Pocitos\\${name}.jpg`)
+       image.setAttribute('src', `Imagenes\\Barrios\\${barrio}\\${name}.jpg`) // Ruta para imagenes desde servidor `..\\Backend\\servidor\\public\\Imagenes\\Barrios\\${barrio}\\${name}.jpg`
        nuevoDiv.appendChild(image);
     
        divContenedor.appendChild(nuevoDiv);
@@ -41,3 +40,6 @@ function cargarFotosBarrios () {
 }
 
 cargarFotosBarrios();
+
+
+
