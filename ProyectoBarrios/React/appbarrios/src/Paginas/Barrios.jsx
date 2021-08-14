@@ -2,6 +2,7 @@ import React from 'react';
 import './Barrios.css';
 import Footer from '../Componentes/Footer';
 import ListaBarrios from '../Componentes/ListaBarrios';
+import Popup from '../Componentes/Popup';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,9 +10,25 @@ import {
   Link,
   useParams
 } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function Barrios() {
+    const [photos, setPhotos] = useState([])
     let { id } = useParams();
+  
+  useEffect(() => {
+    fetch(`http://localhost:4000/fotos/${id}`, {
+      method: "GET",
+    })
+    .then(function (respuesta){
+      return respuesta.json();
+    }).then(function (respuestaJSON){
+      const fotos = respuestaJSON.fotos;
+      setPhotos(fotos);
+    });
+
+    }, [id]);
+    
     return (
       <div className="Appbarrios">
       <header className="headerbarrios">
@@ -24,20 +41,13 @@ export default function Barrios() {
   
       
       <main>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_0931.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1679.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_4888.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_4988.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1227.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1228.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_4958.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_4977.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1662.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1689.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1696.jpg" alt="" /></div>
-        <div><img src="..\Imagenes\Barrios\Prado\DSC_1723.jpg" alt="" /></div>
+        {photos.map((photo) => {
+          return <div><img src={photo.url} alt=""></img></div>
+        })}
+        
       </main>
       <Footer /> 
+      <Popup />
       
       </div>
     );
