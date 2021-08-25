@@ -1,4 +1,5 @@
 import React from 'react';
+import './Popup.css';
 
 function Popup() {
     return (
@@ -39,10 +40,7 @@ function Popup() {
      </div></div>
  
      {/*<script>
-         const menuBarrios = document.getElementById("listabarrios");
-         menuBarrios.addEventListener('change', function() {
-             location.replace(menuBarrios.value + ".html");
-         })
+         
          const popup = document.querySelector(".pop-up")
          popup.addEventListener("click", function(){
              if(event.target === popup) {

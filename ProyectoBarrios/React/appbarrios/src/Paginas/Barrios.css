@@ -122,48 +122,7 @@
         width: 550px;
         background-color: white;
     }
-    .default{
-        background-color: lightgray;
-        gap:5px;
-        padding: 5px;
-        width: 540px;
-        text-align: center;
-        border: 1px solid black;
-    }
-    button{
-        background-color: lightskyblue;
-        border-radius: 5px;
-        border: 2px solid black ;
-        width: 100px;
-    }
-    button:hover{
-        background-color: royalblue;
-    }
-    .contenedor{
-        position: relative;
-        display: inline-block;
-        text-align: center;
-    }
-
-    .centrado{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    section div img{
-        width: 180px;
-        opacity: 70%;
-    }
-    span img{
-        width: 300px;
-    }
-    section >img{
-        width: 550px;
-        height: 364px;
-        object-fit: cover;
-    }
+    
 
     @media (max-width:600px){
         
@@ -210,27 +169,6 @@
         #listabarrios{
         margin-bottom: 5px;
         }
-        .pop-up-contenido{
-            height: 400px;
-            width: 400px;
-            
-        }
-        .default{
-            gap:5px;
-            padding: 5px;
-            width: 390px;
-        }
-        section div img{
-            width: 120px;
-            opacity: 70%;
-        }
-        span img{
-            width: 140px;
-        }
-        section >img{
-            width: 400px;
-            height: 265px;
-            object-fit: cover;
-        }
+        
     
         }
