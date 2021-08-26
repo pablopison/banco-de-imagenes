@@ -16,6 +16,7 @@ import {useModal} from '../hooks/useModal';
 
 export default function Barrios() {
     const [isOpenModal, openModal, closeModal] = useModal(false);
+    const [modalImgUrl, setModalImgUrl] = useModal('');
     const [photos, setPhotos] = useState([])
     let { id } = useParams();
   
@@ -50,12 +51,17 @@ export default function Barrios() {
         
       {photos.map((photo) => {
           const urlPhoto = `\\Imagenes\\Barrios\\${id}\\${photo}.jpg`;
-          return <div><img src={urlPhoto} onClick={openModal} alt=""></img></div>
+          const handleOpenModal = (photoUrl) => {
+            setModalImgUrl(photoUrl);
+            openModal();
+          }
+          return <div><img src={urlPhoto} onClick={() => handleOpenModal(urlPhoto)} alt=""></img></div>
         })}
 
       <Modal isOpen={isOpenModal} closeModal={closeModal}>
       <section className="contenedor">
-      <img src="..\Imagenes\Barrios\Pocitos\Marca de agua\DSC_0003.jpg" />
+      <img src={modalImgUrl} />  
+      {/*<img src="..\Imagenes\Barrios\Pocitos\Marca de agua\DSC_0003.jpg" />*/}
       {/*<div className="centrado"><img src="../Imagenes/logoletrasblancas.png" /></div>*/}
       </section>
       <table className="default">
