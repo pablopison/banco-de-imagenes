@@ -2,7 +2,6 @@ import React from 'react';
 import './Barrios.css';
 import Footer from '../Componentes/Footer';
 import ListaBarrios from '../Componentes/ListaBarrios';
-//import Popup2 from '../Componentes/Popup2';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +15,8 @@ import {useModal} from '../hooks/useModal';
 
 export default function Barrios() {
     const [isOpenModal, openModal, closeModal] = useModal(false);
-    const [modalImgUrl, setModalImgUrl] = useModal('');
+    const [modalImgUrl, setModalImgUrl] = useState('');
+    const [selectedPhotoName, setSelectdPhotoName] = useState('')
     const [photos, setPhotos] = useState([])
     let { id } = useParams();
   
@@ -36,6 +36,12 @@ export default function Barrios() {
       });
   
       }, [id]);
+
+      const handleOpenModal = (photoUrl, photoName) => {
+        setModalImgUrl(photoUrl);
+        setSelectdPhotoName(photoName);
+        openModal();
+      }
     
     return (
       <div className="Appbarrios">
@@ -51,18 +57,14 @@ export default function Barrios() {
         
       {photos.map((photo) => {
           const urlPhoto = `\\Imagenes\\Barrios\\${id}\\${photo}.jpg`;
-          const handleOpenModal = (photoUrl) => {
-            setModalImgUrl(photoUrl);
-            openModal();
-          }
-          return <div><img src={urlPhoto} onClick={() => handleOpenModal(urlPhoto)} alt=""></img></div>
+          
+          return <div><img src={urlPhoto} onClick={() => handleOpenModal(urlPhoto, photo)} alt=""></img></div>
         })}
 
       <Modal isOpen={isOpenModal} closeModal={closeModal}>
       <section className="contenedor">
       <img src={modalImgUrl} />  
-      {/*<img src="..\Imagenes\Barrios\Pocitos\Marca de agua\DSC_0003.jpg" />*/}
-      {/*<div className="centrado"><img src="../Imagenes/logoletrasblancas.png" /></div>*/}
+      <div className="centrado"><img src="../Imagenes/logoletrasblancas.png" /></div>
       </section>
       <table className="default">
  
@@ -75,7 +77,7 @@ export default function Barrios() {
  <tr>
    <td>800 x 600</td>
    <td>$300</td>
-   <td><button><a id="linkDeDescarga" href='http://localhost:4000/descarga/DSC_0003.jpg'>COMPRAR</a></button></td>
+   <td><button><a id="linkDeDescarga" href={`http://localhost:4000/descarga/${selectedPhotoName}.jpg`}>COMPRAR</a></button></td>
  </tr>
 
  <tr>
