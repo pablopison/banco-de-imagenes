@@ -5,7 +5,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const authRouter = require('./routes/auth');
-//const contactoRouter = require('./routes/contacto');
+const contactoRouter = require('./routes/contacto');
+const { router: dbfotosRouter } = require('./routes/dbfotos');
 
 //const { verifyToken } = require('./middlewares/jwt-validate');
 
@@ -26,31 +27,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/auth', authRouter);
-//app.use('/contacto', contactoRouter);
+app.use('/contacto', contactoRouter);
+app.use('/dbfotos', dbfotosRouter);
 
-
-//Base de datos
-app.get('/ping', async(request, response) => {
-    
-    //const first_name = 'Gustavo';
-    //const last_name = 'Perez';
-    //const gender = 'male';
-    //const email = 'pablo@gmail.com';
-    //const date_of_birth = '1980-06-30';
-    //const country = 'Portugal';
-    //const res = await client.query(`INSERT INTO person(first_name, last_name, gender, email, date_of_birth, country)
-    //VALUES ($1, $2, $3, $4, $5, $6)`,[first_name, last_name, gender, email, date_of_birth, country]);
-
-    //const res = await client.query(`UPDATE person SET email = $1 WHERE id = 3`, [email]);
-
-    const res = await query('SELECT * FROM person');
-    console.log(res)
-    
-
-    return response.json({
-        person: res.rows
-    });
-});
 
 
 //Enviar un mensaje de texto
@@ -59,13 +38,6 @@ app.get('/', function(req, res){
     res.send('Bienvenido a nuestra página');
 });
 
-//Formulario de contacto
-app.post('/contacto', function(req, res){
-    const newUser = req.body;
-    console.log(newUser);
-
-    res.sendStatus(204);
-})
 
 //Descarga de imagen
 app.get('/descarga/:fotoName', function(req, res){
@@ -73,13 +45,28 @@ app.get('/descarga/:fotoName', function(req, res){
     res.download(`imagenes/${req.params.fotoName}`);
 })
 
-//Cargar la fotos de un barrio desde el backend
-/*app.get('/fotos', verifyToken, function(req, res){
+//Cargar un barrio y las fotos de un barrio desde la base de datos
+app.get('/fotos1/:barrio', async(req, res) => {
+    console.log(JSON.stringify(req.params));
+    try{ 
 
-    res.json({
-        fotos: fotos
-    })
-});*/
+     const barrio = req.params.barrio;  
+     const fotosDB = await query('SELECT * FROM fotos WHERE barrio = $1', [barrio]);
+     console.log(fotosDB)
+     
+ 
+     return res.json({
+         success: true,
+         fotos: fotosDB.rows
+     });
+ 
+    }catch (ex){
+     return res.send({
+         success: false,
+         error: 'An exception was thrown: ' + JSON.stringify(ex)
+     });
+     }
+ });
 
 //Cargar un barrio y la fotos de un barrio desde el backend
 app.get('/fotos/:barrio', /*verifyToken,*/ function(req, res){
@@ -103,10 +90,6 @@ app.listen(PORT, function(){
     console.log('El servidor quedo corriendo en el puerto ' + PORT);
 });
 
-/*const fotos = [
-    'DSC_0003', 'DSC_0005', 'DSC_0020', 'DSC_0024', 
-    'DSC_9999', 'DSC_0032', 'DSC_9998', 'DSC_9983',
-    'DSC_9985', 'DSC_0011', 'DSC_0049', 'DSC_0051'];*/
 
 const barrios = [
     {
