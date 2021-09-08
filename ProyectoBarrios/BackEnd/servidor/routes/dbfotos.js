@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', async(request, response) => {
     
     try{ 
-     const fotosDB = await query('SELECT * FROM fotos');
+     const fotosDB = await query('SELECT * FROM fotos ORDER BY id');
      console.log(fotosDB)
      
  
@@ -86,10 +86,10 @@ router.get('/', async(request, response) => {
  
  //BASE DE DATOS
  //Agregar una foto nueva  (datos fijos)
- router.post('/ping2', async(request, response) => {
+ router.post('/agregar2', async(request, response) => {
      
      const nombre = 'Tres_Cruces_18';
-     const barrio = 'Tres Cruces';
+     const barrio = 'TRES CRUCES';
      const tamaño = 'Grande';
      const ruta = 'C:\\RespaldoLaptop\\Diseño\\Senpai2021\\Proyecto\\GitHub\\banco-de-imagenes\\ProyectoBarrios\\BackEnd\\servidor\\imagenes\\Tres_Cruces_18.jpg';
  
@@ -157,7 +157,7 @@ router.get('/', async(request, response) => {
  //Actualizar los datos de una foto (datos fijos)
  router.put('/actualizar', async(request, response) => {
  
-     const barrio = 'Tres Cruces';
+     const barrio = 'TRES CRUCES';
      
      const res = await query(`UPDATE fotos SET barrio = $1 WHERE id = 180`, [barrio]);
  

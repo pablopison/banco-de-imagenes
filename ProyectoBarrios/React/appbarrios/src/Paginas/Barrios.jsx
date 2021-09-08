@@ -56,9 +56,10 @@ export default function Barrios() {
       <main>
         
       {photos.map((photo) => {
-          const urlPhoto = `\\Imagenes\\Barrios\\${id}\\${photo}.jpg`;
+          const urlPhoto = `\\Imagenes\\Barrios\\${id}\\${photo.nombre}.jpg`;
+          debugger;
           
-          return <div><img src={urlPhoto} onClick={() => handleOpenModal(urlPhoto, photo)} alt=""></img></div>
+          return <div><img src={`http://localhost:4000/fotos/${id}`} onClick={() => handleOpenModal(urlPhoto, photo)} alt=""></img></div>
         })}
 
       <Modal isOpen={isOpenModal} closeModal={closeModal}>
