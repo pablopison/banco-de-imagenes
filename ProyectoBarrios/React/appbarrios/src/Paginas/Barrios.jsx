@@ -16,8 +16,9 @@ import {useModal} from '../hooks/useModal';
 export default function Barrios() {
     const [isOpenModal, openModal, closeModal] = useModal(false);
     const [modalImgUrl, setModalImgUrl] = useState('');
-    const [selectedPhotoName, setSelectdPhotoName] = useState('')
-    const [photos, setPhotos] = useState([])
+    const [selectedPhotoName, setSelectdPhotoName] = useState('');
+    const [selectedPhotoId, setSelectdPhotoId] = useState(0);
+    const [photos, setPhotos] = useState([]);
     let { id } = useParams();
   
     useEffect(() => {
@@ -37,11 +38,31 @@ export default function Barrios() {
   
       }, [id]);
 
-      const handleOpenModal = (photoUrl, photoName) => {
+      const handleOpenModal = (photoUrl, photo) => {
         setModalImgUrl(photoUrl);
-        setSelectdPhotoName(photoName);
+        setSelectdPhotoName(photo.nombre);
+        setSelectdPhotoId(photo.id);
         openModal();
       }
+
+      //Metodo nuevo
+      const handleNewDownload = () => {
+        // El id de la foto que descargo esta en la variable de estado selectedPhotoId
+        // Revisa que el link a tu endpoint nuevo en el backend sea este
+        fetch(`http://localhost:4000/dbfotos/descargafoto/${selectedPhotoId}`, {
+          method: 'POST' 
+        })
+        .then(function (respuesta){
+             return respuesta.json();
+           }).then(function (respuestaJSON) {
+             if (respuestaJSON.descargas && respuestaJSON.descargas.length > 0) {
+               console.log('Las descargas son', respuestaJSON.descargas);
+             } else {
+               alert(respuestaJSON.error);
+             }
+           });
+     }
+
     
     return (
       <div className="Appbarrios">
@@ -57,9 +78,9 @@ export default function Barrios() {
         
       {photos.map((photo) => {
           const urlPhoto = `\\Imagenes\\Barrios\\${id}\\${photo.nombre}.jpg`;
-          debugger;
           
-          return <div><img src={`http://localhost:4000/fotos/${id}`} onClick={() => handleOpenModal(urlPhoto, photo)} alt=""></img></div>
+          
+          return <div><img src={urlPhoto} onClick={() => handleOpenModal(urlPhoto, photo)} alt=""></img></div>
         })}
 
       <Modal isOpen={isOpenModal} closeModal={closeModal}>
@@ -78,7 +99,7 @@ export default function Barrios() {
  <tr>
    <td>800 x 600</td>
    <td>$300</td>
-   <td><button><a id="linkDeDescarga" href={`http://localhost:4000/descarga/${selectedPhotoName}.jpg`}>COMPRAR</a></button></td>
+   <td><button><a id="linkDeDescarga" href={`http://localhost:4000/descarga/${selectedPhotoName}.jpg`} onClick={handleNewDownload}>COMPRAR</a></button></td>
  </tr>
 
  <tr>

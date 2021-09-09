@@ -67,10 +67,13 @@ app.get('/fotos/:barrio', async(req, res) => {
      });
      }
  });
- 
+
+ app.listen(PORT, function(){
+    console.log('El servidor quedo corriendo en el puerto ' + PORT);
+});
 
 //Cargar un barrio y la fotos de un barrio desde el backend
-app.get('/fotos1/:barrio', /*verifyToken,*/ function(req, res){
+/*app.get('/fotos1/:barrio',  function(req, res){
 
     const nombreBarrio = req.params.barrio;
     const barrio = barrios.find(b => b.nombre === nombreBarrio);
@@ -88,7 +91,7 @@ app.get('/fotos1/:barrio', /*verifyToken,*/ function(req, res){
     });
 
 
-/*const barrios = [
+const barrios = [
     {
         nombre: "POCITOS",
         fotos: [
@@ -178,10 +181,8 @@ app.get('/fotos1/:barrio', /*verifyToken,*/ function(req, res){
             'Bella_Vista_05', 'Bella_Vista_06', 'Bella_Vista_07', 'Bella_Vista_08',
             'Bella_Vista_09', 'Bella_Vista_10', 'Bella_Vista_11', 'Bella_Vista_12']
     },
-] */
+]*/ 
 
 
-app.listen(PORT, function(){
-    console.log('El servidor quedo corriendo en el puerto ' + PORT);
-});
+
       
