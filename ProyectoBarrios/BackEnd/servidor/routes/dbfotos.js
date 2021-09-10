@@ -205,7 +205,7 @@ router.get('/', async(request, response) => {
 
  
  //BASE DE DATOS
- //Descarga de foto
+ //Saber que fotos fueron descargadas por Id
  router.post('/descargafoto/:fotoId', async(request, response) => {
  
    try{
